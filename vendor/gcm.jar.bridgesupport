@@ -1,0 +1,86 @@
+<?xml version='1.0'?>
+<signatures version='1.0'>
+<class name="com/activate/gcm/C2dmModule" super="org/appcelerator/kroll/KrollModule">
+<method name="&lt;init&gt;" type="()V"/>
+<method name="registerC2dm" type="(Ljava/util/HashMap;)V"/>
+<method name="unregister" type="()V"/>
+<method name="getRegistrationId" type="()Ljava/lang/String;"/>
+<method name="getSenderId" type="()Ljava/lang/String;"/>
+<method name="sendSuccess" type="(Ljava/lang/String;)V"/>
+<method name="sendError" type="(Ljava/lang/String;)V"/>
+<method name="sendMessage" type="(Ljava/util/HashMap;)V"/>
+<method name="getInstance" type="()Lcom/activate/gcm/C2dmModule;" class_method="true"/>
+</class>
+<class name="com/activate/gcm/C2dmModulePrototype" super="org/appcelerator/kroll/KrollModulePrototype">
+<method name="getProxyPrototype" type="()Lcom/activate/gcm/C2dmModulePrototype;" class_method="true"/>
+<method name="dispose" type="()V" class_method="true"/>
+<method name="&lt;init&gt;" type="()V"/>
+<method name="getPrototype" type="()Lorg/mozilla/javascript/Scriptable;"/>
+<method name="getParent" type="()Ljava/lang/Class;"/>
+<method name="createProxy" type="(Ljava/lang/String;[Ljava/lang/Object;)Lorg/appcelerator/kroll/KrollProxySupport;"/>
+<method name="registerC2dm" type="(Lorg/mozilla/javascript/Context;Lorg/mozilla/javascript/Scriptable;[Ljava/lang/Object;)V"/>
+<method name="unregister" type="(Lorg/mozilla/javascript/Context;Lorg/mozilla/javascript/Scriptable;[Ljava/lang/Object;)V"/>
+<method name="getRegistrationId" type="(Lorg/mozilla/javascript/Context;Lorg/mozilla/javascript/Scriptable;[Ljava/lang/Object;)Ljava/lang/Object;"/>
+<method name="getSenderId" type="(Lorg/mozilla/javascript/Context;Lorg/mozilla/javascript/Scriptable;[Ljava/lang/Object;)Ljava/lang/Object;"/>
+<method name="getMaxPrototypeId" type="()I"/>
+<method name="findPrototypeId" type="(Ljava/lang/String;)I"/>
+<method name="initPrototypeId" type="(I)V"/>
+<method name="execIdCall" type="(Lorg/mozilla/javascript/IdFunctionObject;Lorg/mozilla/javascript/Context;Lorg/mozilla/javascript/Scriptable;Lorg/mozilla/javascript/Scriptable;[Ljava/lang/Object;)Ljava/lang/Object;"/>
+<method name="getClassName" type="()Ljava/lang/String;"/>
+</class>
+<class name="com/activate/gcm/CommonUtilities" super="java/lang/Object">
+<method name="&lt;init&gt;" type="()V"/>
+</class>
+<class name="com/activate/gcm/GcmGeneratedBindings" super="java/lang/Object">
+<method name="&lt;init&gt;" type="()V"/>
+<method name="init" type="()V" class_method="true"/>
+</class>
+<class name="com/activate/gcm/GCMIntentService" super="com/google/android/gcm/GCMBaseIntentService">
+<method name="&lt;init&gt;" type="()V"/>
+<method name="onRegistered" type="(Landroid/content/Context;Ljava/lang/String;)V"/>
+<method name="onUnregistered" type="(Landroid/content/Context;Ljava/lang/String;)V"/>
+<method name="onMessage" type="(Landroid/content/Context;Landroid/content/Intent;)V"/>
+<method name="onError" type="(Landroid/content/Context;Ljava/lang/String;)V"/>
+<method name="onRecoverableError" type="(Landroid/content/Context;Ljava/lang/String;)Z"/>
+</class>
+<class name="com/google/android/gcm/GCMBaseIntentService" super="android/app/IntentService">
+<method name="&lt;init&gt;" type="(Ljava/lang/String;)V"/>
+<method name="onMessage" type="(Landroid/content/Context;Landroid/content/Intent;)V"/>
+<method name="onDeletedMessages" type="(Landroid/content/Context;I)V"/>
+<method name="onRecoverableError" type="(Landroid/content/Context;Ljava/lang/String;)Z"/>
+<method name="onError" type="(Landroid/content/Context;Ljava/lang/String;)V"/>
+<method name="onRegistered" type="(Landroid/content/Context;Ljava/lang/String;)V"/>
+<method name="onUnregistered" type="(Landroid/content/Context;Ljava/lang/String;)V"/>
+<method name="onHandleIntent" type="(Landroid/content/Intent;)V"/>
+<method name="runIntentInService" type="(Landroid/content/Context;Landroid/content/Intent;Ljava/lang/String;)V" class_method="true"/>
+</class>
+<class name="com/google/android/gcm/GCMBroadcastReceiver" super="android/content/BroadcastReceiver">
+<method name="&lt;init&gt;" type="()V"/>
+<method name="onReceive" type="(Landroid/content/Context;Landroid/content/Intent;)V"/>
+<method name="getGCMIntentServiceClassName" type="(Landroid/content/Context;)Ljava/lang/String;"/>
+</class>
+<class name="com/google/android/gcm/GCMConstants" super="java/lang/Object">
+</class>
+<class name="com/google/android/gcm/GCMRegistrar" super="java/lang/Object">
+<method name="checkDevice" type="(Landroid/content/Context;)V" class_method="true"/>
+<method name="checkManifest" type="(Landroid/content/Context;)V" class_method="true"/>
+<method name="register" type="(Landroid/content/Context;[Ljava/lang/String;)V" class_method="true"/>
+<method name="internalRegister" type="(Landroid/content/Context;[Ljava/lang/String;)V" class_method="true"/>
+<method name="unregister" type="(Landroid/content/Context;)V" class_method="true"/>
+<method name="onDestroy" type="(Landroid/content/Context;)V" class_method="true"/>
+<method name="internalUnregister" type="(Landroid/content/Context;)V" class_method="true"/>
+<method name="getRegistrationId" type="(Landroid/content/Context;)Ljava/lang/String;" class_method="true"/>
+<method name="isRegistered" type="(Landroid/content/Context;)Z" class_method="true"/>
+<method name="clearRegistrationId" type="(Landroid/content/Context;)Ljava/lang/String;" class_method="true"/>
+<method name="setRegistrationId" type="(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;" class_method="true"/>
+<method name="setRegisteredOnServer" type="(Landroid/content/Context;Z)V" class_method="true"/>
+<method name="isRegisteredOnServer" type="(Landroid/content/Context;)Z" class_method="true"/>
+<method name="resetBackoff" type="(Landroid/content/Context;)V" class_method="true"/>
+<method name="getBackoff" type="(Landroid/content/Context;)I" class_method="true"/>
+<method name="setBackoff" type="(Landroid/content/Context;I)V" class_method="true"/>
+</class>
+<class name="com/activate/gcm/GcmBootstrap" super="java/lang/Object">
+<method name="&lt;init&gt;" type="()V"/>
+<method name="bootstrap" type="()V"/>
+</class>
+</signatures>
