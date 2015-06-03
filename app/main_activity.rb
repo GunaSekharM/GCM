@@ -1,7 +1,5 @@
 class MainActivity < Android::App::Activity
-  MyPREFERENCES = "MyPreferences"
-  GCMNOTIFICATION = "gcm"
-  APP_VERSION = "appVersion"
+  MyPREFERENCES = "prefs"
   def onCreate(savedInstanceState)
     super
     #layout
@@ -14,18 +12,25 @@ class MainActivity < Android::App::Activity
   end
 
   def onClick(view)
-    @regId = registerGCM
-  end
-  
-  def registerGCM
+    @sharedpreferences = getSharedPreferences(MyPREFERENCES, Android::Content::Context::MODE_PRIVATE)
+    regId_value = @sharedpreferences.getString("device_registration_id", nil)
+    puts regId_value
+    if regId_value
       registerInBackground
+    end
   end
   
   def registerInBackground
-    puts getApplicationContext
-    gcm_async_task = GcmAsyncTask.new(getApplicationContext)
+    gcm_async_task = GcmAsyncTask.new(getApplicationContext, self)
     url = [nil, nil, nil]
     gcm_async_task.execute(url)
+  end
+  
+  def storeRegId(regID)
+    puts regID
+    editor = @sharedpreferences.edit
+    editor.putString("device_registration_id", regID)
+    editor.commit
   end
   
 end
