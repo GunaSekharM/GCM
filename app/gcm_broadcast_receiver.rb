@@ -1,9 +1,13 @@
-class GcmBroadcastReceiver < Android::Support::V4::Content::WakefulBroadcastReceiver
+class GcmBroadcastReceiver < Android::Content::BroadcastReceiver
+  
   def onReceive(context, intent)
-    if (intent.getAction.equals("Com::Google::Android::C2dm::Intent::RECEIVE"))
+    puts "coming into broadcastReceiver&&&&&&&&&&&&&"
+    if (intent.getAction.equals("com.google.android.c2dm.intent.RECEIVE"))
+      puts "coming into broadcastReceiver"
+      puts GCMNotificationIntentService.class.getName
+      puts context.getPackageName
       comp = Android::Content::ComponentName.new(context.getPackageName, GCMNotificationIntentService.class.getName)
-      startWakefulService(context, intent.setComponent(comp))
+      Android::Support::V4::Content::WakefulBroadcastReceiver.startWakefulService(context, intent.setComponent(comp))
       setResultCode(Android::App::Activity::RESULT_OK)
     end
   end
-end
